@@ -1,0 +1,7 @@
+Keep your existing images here when replacing the three code files.
+
+profile.jpg — your personal photo
+request-workflow.png — your operations project screenshot (optional)
+lead-crm.png — your CRM project screenshot (optional)
+
+Use actual JPG/PNG images with these names, not renamed documents or shortcuts.
