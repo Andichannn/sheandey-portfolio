@@ -2299,3 +2299,59 @@ body.dialog-open {
     display: none;
   }
 }
+/* Footer layout */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* Social icons */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid #245a9c;
+  border-radius: 50%;
+  color: #245a9c;
+  background: transparent;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.footer-socials svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.footer-socials a:hover {
+  background-color: #245a9c;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.footer-socials a:focus-visible {
+  outline: 3px solid #245a9c;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-socials a {
+    transition: none;
+  }
+}
