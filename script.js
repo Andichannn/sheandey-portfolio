@@ -397,3 +397,106 @@ if (modal) {
    Movement and hover-to-pause are handled in CSS.
    No pause button or toolkit JavaScript is needed.
 ================================================== */
+/* Fade content into view while scrolling */
+(() => {
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    return;
+  }
+
+  const elements = document.querySelectorAll([
+    ".hero-copy",
+    ".hero-visual",
+    ".about-note",
+    ".about-copy",
+    ".section-heading",
+    ".service-card",
+    ".stack-section h2",
+    ".stack-description",
+    ".stack-marquee",
+    ".skills-heading",
+    ".skill-card",
+    ".project-filters",
+    ".project-card",
+    ".experience-card",
+    ".experience-focus",
+    ".project-disclosure",
+    ".contact-card"
+  ].join(","));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle(
+        "is-visible",
+        entry.isIntersecting
+      );
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: "0px 0px -24px 0px"
+  });
+
+  document.documentElement.classList.add("scroll-reveal-ready");
+
+  elements.forEach(element => {
+    element.classList.add("scroll-reveal");
+    observer.observe(element);
+  });
+})();
+/* Booking calendar */
+(() => {
+  const bookingUrl = "https://calendly.com/sheandey29/30min?back=1&month=2026-10";
+
+  const container = document.querySelector("#booking-embed");
+  const directLink = document.querySelector("#booking-direct");
+
+  if (!bookingUrl || !container) return;
+
+  const frame = document.createElement("iframe");
+
+  frame.src = bookingUrl;
+  frame.title = "Book a call with Sheandey Ghelene Lamug";
+  frame.loading = "lazy";
+
+  container.replaceChildren(frame);
+
+  if (directLink) {
+    directLink.href = bookingUrl;
+    directLink.hidden = false;
+  }
+})();
+/* Resize the calendar to fit its content */
+(() => {
+  const container = document.querySelector("#booking-embed");
+  const frame = container?.querySelector("iframe");
+
+  if (!frame) return;
+
+  const bookingUrl = frame.src;
+
+  function showCalendar() {
+    container.replaceChildren();
+    container.style.height = "700px";
+
+    window.Calendly.initInlineWidget({
+      url: bookingUrl,
+      parentElement: container,
+      resize: true
+    });
+  }
+
+  if (window.Calendly?.initInlineWidget) {
+    showCalendar();
+    return;
+  }
+
+  const script = document.createElement("script");
+
+  script.src = "https://assets.calendly.com/assets/external/widget.js";
+  script.onload = showCalendar;
+
+  document.head.append(script);
+})();

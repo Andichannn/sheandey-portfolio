@@ -1,56 +1,41 @@
-/* ==================================================
-   01. COLORS, FONTS, AND EDITABLE SETTINGS
-================================================== */
+/* Colors and settings */
 
 :root {
   color-scheme: dark;
 
-  /* Backgrounds */
   --background: #0b1120;
   --surface: #101a2d;
   --skills-background: #0e1728;
 
-  /* Accent colors */
   --blue: #8cbcff;
   --pink: #efb5d2;
   --pink-soft: #f4d8e6;
 
-  /* Text and borders */
   --text: #eef2fa;
   --muted: #a1aec4;
   --line: #25324a;
 
-  /* Font families */
   --sans: "Segoe UI", Arial, sans-serif;
   --serif: Georgia, "Times New Roman", serif;
 
-  /*
-    Main text sizes.
-    These normally equal 16px, 15px, 14px, 13px, and 12px.
-  */
   --font-body: 1rem;
   --font-button: 0.9375rem;
   --font-small: 0.875rem;
   --font-tag: 0.8125rem;
   --font-label: 0.75rem;
 
-  /* Space above sections when clicking navigation links */
   --nav-offset: 110px;
 
-  /* Moving toolkit */
   --stack-gap: 8px;
   --stack-speed: 32s;
   --stack-reverse-speed: 38s;
 
-  /* Service cards */
   --service-padding: 20px;
   --service-gap: 16px;
 }
 
 
-/* ==================================================
-   02. BASIC PAGE STYLES
-================================================== */
+/* Base */
 
 *,
 *::before,
@@ -130,28 +115,22 @@ button:focus-visible {
   color: #172138;
 }
 
-/* Keeps filtered projects hidden. */
 [hidden] {
   display: none !important;
 }
 
 
-/* ==================================================
-   03. SHARED LAYOUT AND HEADINGS
-================================================== */
+/* Layout */
 
-/* Maximum content width and side spacing */
 .container {
   width: min(1180px, calc(100% - 96px));
   margin-inline: auto;
 }
 
-/* Space above and below most sections */
 .section {
   padding-block: 105px;
 }
 
-/* Small section labels */
 .eyebrow {
   margin-bottom: 25px;
   color: var(--pink);
@@ -161,7 +140,6 @@ button:focus-visible {
   letter-spacing: 1.4px;
 }
 
-/* Main section headings */
 h2 {
   margin-bottom: 23px;
   font-size: clamp(2.25rem, 4vw, 3.1875rem);
@@ -194,11 +172,8 @@ h2 em {
 }
 
 
-/* ==================================================
-   04. ACCESSIBILITY HELPERS
-================================================== */
+/* Accessibility */
 
-/* Hidden visually, but available to screen readers. */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -211,7 +186,6 @@ h2 em {
   white-space: nowrap;
 }
 
-/* Appears when reached using the keyboard. */
 .skip-link {
   position: fixed;
   top: -100px;
@@ -228,9 +202,7 @@ h2 em {
 }
 
 
-/* ==================================================
-   05. FULL-WIDTH STICKY NAVIGATION
-================================================== */
+/* Navigation */
 
 .site-header {
   position: sticky;
@@ -255,54 +227,34 @@ h2 em {
   backdrop-filter: blur(14px);
 }
 
-/* Brand name and initials */
 .brand {
   display: inline-flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.brand-mark {
-  position: relative;
-  display: grid;
-  flex-shrink: 0;
-  place-items: center;
-
-  width: 48px;
-  height: 48px;
-  background: #18233a;
-  border: 1px solid #38435c;
-  border-radius: 50%;
-
-  font: italic 25px var(--serif);
-  letter-spacing: -2px;
-}
-
-.brand-mark > span {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  color: var(--pink);
-  font: 17px var(--sans);
+  min-width: 0;
 }
 
 .brand-name {
-  font-size: 1.3125rem;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 3px 9px;
+
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+}
+
+.brand-name strong {
+  color: var(--text);
+  font-weight: 700;
 }
 
 .brand-name > span {
-  display: block;
-  margin-top: 7px;
-  color: var(--muted);
-  font-size: var(--font-label);
-  font-weight: 400;
-  letter-spacing: 1px;
+  font: inherit;
+  letter-spacing: inherit;
 }
 
-/* Desktop navigation */
 .site-header nav {
   display: flex;
   align-items: center;
@@ -332,15 +284,12 @@ h2 em {
   color: var(--pink);
 }
 
-/* Shown on mobile after JavaScript initializes. */
 .menu-toggle {
   display: none;
 }
 
 
-/* ==================================================
-   06. HERO / INTRODUCTION
-================================================== */
+/* Hero */
 
 .hero {
   display: grid;
@@ -371,10 +320,18 @@ h2 em {
   height: 6px;
   background: var(--pink);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #efb5d211;
+  box-shadow: 0 0 0 4px rgb(239 181 210 / 7%);
 }
 
-/* Main headline size */
+.hero-name {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
+}
+
 .hero-title {
   margin-bottom: 28px;
   color: var(--blue);
@@ -396,11 +353,6 @@ h2 em {
   max-width: 440px;
   font-size: var(--font-body);
   line-height: 1.8;
-}
-
-.hero-intro strong {
-  color: #dce5f5;
-  font-weight: 500;
 }
 
 .hero-actions {
@@ -426,9 +378,7 @@ h2 em {
 }
 
 
-/* ==================================================
-   07. SHARED BUTTONS
-================================================== */
+/* Buttons */
 
 .button {
   display: inline-flex;
@@ -481,139 +431,17 @@ h2 em {
 }
 
 
-/* ==================================================
-   08. PORTRAIT
-================================================== */
+/* Photo */
 
-.portrait-composition {
-  position: relative;
-  isolation: isolate;
-  justify-self: end;
-
-  width: 100%;
-  max-width: 435px;
-  padding: 22px 28px 28px 0;
-}
-
-/* Photo height and frame */
-.portrait-window {
-  position: relative;
-  height: 485px;
-  overflow: hidden;
-  background: #e8e5ec;
-  border: 8px solid #1e2a42;
-  border-radius: 170px 170px 22px 22px;
-}
-
-.portrait-window > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-/* Name label on the photo */
-.portrait-label {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  padding: 19px 20px;
-  background: #101a2dec;
-  border-top: 1px solid #ffffff20;
-
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-}
-
-.portrait-label strong {
-  display: block;
-  font-size: var(--font-body);
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.3px;
-}
-
-.portrait-label > span {
-  display: block;
-  margin-top: 6px;
-  color: #b0bdd3;
-  font-size: var(--font-label);
-  line-height: 1.6;
-  letter-spacing: 0.8px;
-}
-
-.portrait-orbit {
-  position: absolute;
-  top: 14%;
-  left: -12px;
-  z-index: -1;
-
-  width: 100%;
-  height: 85%;
-  border: 1px solid #394263;
-  border-radius: 47%;
-  transform: rotate(-17deg);
-}
-
-.portrait-star {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  z-index: 2;
-  color: var(--pink);
-  font-size: 69px;
-  line-height: 1;
-}
-
-.portrait-note {
-  position: absolute;
-  right: -15px;
-  bottom: 105px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  max-width: calc(100% - 24px);
-  padding: 13px 17px;
-  background: var(--pink-soft);
-  border: 1px solid #f8dfec;
-  border-radius: 5px;
-  color: #5c3d54;
-
-  font-size: var(--font-label);
-  line-height: 1.6;
-  transform: rotate(5deg);
-  box-shadow: 0 9px 30px #00000020;
-}
-
-.portrait-note > span {
-  font-size: 28px;
-  line-height: 1;
-}
-
-.portrait-note strong {
-  font-weight: 600;
-}
-
-/* ==================================================
-   HERO PHOTO WITH FLOATING SOFTWARE
-================================================== */
-
-/* Overall photo area */
 .hero-visual {
   position: relative;
   isolation: isolate;
   justify-self: end;
-
   width: 100%;
   max-width: 520px;
   min-height: 560px;
 }
 
-/* Soft blue and pink light behind the photo */
 .hero-glow {
   position: absolute;
   inset: 12% 5% 5%;
@@ -635,7 +463,6 @@ h2 em {
   pointer-events: none;
 }
 
-/* Photo stays still while the badges move */
 .hero-portrait {
   position: relative;
   z-index: 1;
@@ -647,13 +474,15 @@ h2 em {
   object-fit: contain;
   object-position: center bottom;
 
-  /* Gently fades the bottom edge */
+  /* Increase this number to enlarge the photo */
+  transform: scale(1.2);
+  transform-origin: center bottom;
+
   -webkit-mask-image: linear-gradient(
     to bottom,
     black 78%,
     transparent 100%
   );
-
   mask-image: linear-gradient(
     to bottom,
     black 78%,
@@ -661,7 +490,9 @@ h2 em {
   );
 }
 
-/* Layer above the portrait */
+
+/* Floating apps */
+
 .floating-tools {
   position: absolute;
   inset: 0;
@@ -669,7 +500,6 @@ h2 em {
   pointer-events: none;
 }
 
-/* Floating software badges — rounded with soft depth */
 .floating-tool {
   position: absolute;
   display: inline-flex;
@@ -680,7 +510,6 @@ h2 em {
   border: 1px solid #465875;
   border-radius: 20px;
 
-  /* Subtle shading creates a raised surface */
   background: linear-gradient(
     145deg,
     #23334e 0%,
@@ -694,7 +523,6 @@ h2 em {
   line-height: 1.5;
   white-space: nowrap;
 
-  /* Top highlight, lower edge, and floating shadow */
   box-shadow:
     inset 0 2px 1px rgb(255 255 255 / 14%),
     inset 0 -3px 4px rgb(0 0 0 / 25%),
@@ -709,18 +537,12 @@ h2 em {
     infinite;
 }
 
-/* Logo size */
 .floating-tool img {
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
-  flex-shrink: 0;
   object-fit: contain;
 }
-
-/*
-  Badge positions and individual movement.
-  Different durations and delays keep them from moving together.
-*/
 
 .float-zapier {
   top: 12%;
@@ -761,70 +583,17 @@ h2 em {
 .float-google {
   right: 0;
   bottom: 10%;
-
   --float-duration: 7.5s;
   --float-delay: -5s;
   --drift-x: -6px;
   --drift-y: -15px;
 }
 
-/* Slow, gentle floating movement */
-@keyframes airy-float {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(-1deg);
-  }
 
-  50% {
-    transform:
-      translate(var(--drift-x, 6px), var(--drift-y, -12px))
-      rotate(1deg);
-  }
-}
-
-/* Smaller photo area on phones */
-@media (max-width: 760px) {
-  .hero-visual {
-    justify-self: center;
-    max-width: 420px;
-    min-height: 470px;
-  }
-
-  .hero-portrait {
-    height: 460px;
-  }
-
-  .floating-tool {
-    gap: 7px;
-    padding: 9px 11px;
-    font-size: var(--font-label);
-    border-radius: 14px;
-  }
-
-  .floating-tool img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .float-google {
-    bottom: 6%;
-  }
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .floating-tool {
-    animation: none;
-    transform: none;
-  }
-}
-
-/* ==================================================
-   09. ABOUT ME
-================================================== */
+/* About */
 
 .about-section {
-  background: #0e1728;
+  background: var(--skills-background);
   border-bottom: 1px solid var(--line);
 }
 
@@ -835,7 +604,6 @@ h2 em {
   gap: 110px;
 }
 
-/* Pink decorative note */
 .about-note {
   position: relative;
   padding: 40px;
@@ -878,10 +646,8 @@ h2 em {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding-top: 17px;
   border-top: 1px solid #cbb5ca;
-
   color: #855e7e;
   font: italic 25px var(--serif);
 }
@@ -890,7 +656,6 @@ h2 em {
   font: 24px var(--sans);
 }
 
-/* Professional summary */
 .about-copy h2 {
   font-size: 3rem;
 }
@@ -917,11 +682,8 @@ h2 em {
 }
 
 
-/* ==================================================
-   10. SERVICES
-================================================== */
+/* Services */
 
-/* Equal widths and equal heights */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -992,9 +754,7 @@ h2 em {
 }
 
 
-/* ==================================================
-   11. MATCHING BACKGROUNDS FOR BOTH 03 SECTIONS
-================================================== */
+/* Toolkit and skills backgrounds */
 
 .stack-section,
 .skills-section {
@@ -1011,10 +771,7 @@ h2 em {
 }
 
 
-/* ==================================================
-   12. MOVING TOOLKIT
-   Each row needs two identical groups in the HTML.
-================================================== */
+/* Moving toolkit */
 
 .stack-section h2 {
   margin-bottom: 16px;
@@ -1032,7 +789,6 @@ h2 em {
   line-height: 1.8;
 }
 
-/* Visible scrolling window */
 .stack-marquee {
   min-width: 0;
   overflow: hidden;
@@ -1045,7 +801,6 @@ h2 em {
     black 94%,
     transparent
   );
-
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -1066,7 +821,6 @@ h2 em {
   flex-shrink: 0;
   align-items: center;
   gap: var(--stack-gap);
-
   min-width: 100cqw;
   padding: 5px var(--stack-gap) 5px 0;
 }
@@ -1094,11 +848,10 @@ h2 em {
     color 0.2s;
 }
 
-/* Actual app logo images */
 .stack-pill .tool-icon {
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
-  flex-shrink: 0;
   object-fit: contain;
 }
 
@@ -1108,7 +861,6 @@ h2 em {
   color: var(--pink-soft);
 }
 
-/* Second moving row */
 .stack-row-secondary {
   margin-top: 10px;
 }
@@ -1118,25 +870,12 @@ h2 em {
   animation-duration: var(--stack-reverse-speed);
 }
 
-/* Pause only the row being hovered. */
 .stack-marquee:hover .stack-track {
   animation-play-state: paused;
 }
 
-@keyframes stack-scroll {
-  from {
-    transform: translateX(0);
-  }
 
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-
-/* ==================================================
-   13. CATEGORIZED SKILLS
-================================================== */
+/* Skills */
 
 .skills-heading {
   margin-bottom: 32px;
@@ -1181,7 +920,6 @@ h2 em {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1193,14 +931,12 @@ h2 em {
   background: #111e32;
   border: 1px solid #33415c;
   border-radius: 30px;
-
   color: #b9cbe4;
   font-size: var(--font-tag);
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
-/* Pink accents on alternate cards */
 .skill-card:nth-child(even) .skill-tags li {
   background: #251f32;
   border-color: #50415a;
@@ -1212,9 +948,7 @@ h2 em {
 }
 
 
-/* ==================================================
-   14. SELECTED WORK AND FILTERS
-================================================== */
+/* Projects */
 
 .projects-section {
   background: var(--background);
@@ -1234,7 +968,6 @@ h2 em {
   background: transparent;
   border: 1px solid #344158;
   border-radius: 30px;
-
   color: #a6b4cc;
   font-size: var(--font-tag);
   line-height: 1.6;
@@ -1272,44 +1005,32 @@ h2 em {
 }
 
 
-/* ==================================================
-   15. PROJECT PREVIEWS
-================================================== */
+/* Project previews */
 
 .project-preview {
   position: relative;
   display: block;
-
   width: 100%;
   height: 250px;
   padding: 0;
   overflow: hidden;
-
   background: #dce5f5;
   border: 0;
   border-radius: 9px;
   text-align: left;
 }
 
-/* Fallback illustration */
 .preview-illustration {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   height: 100%;
   padding: 24px;
   background: #dce5f5;
   color: #35516f;
 }
 
-.preview-topline {
-  color: #526d8c;
-  font-size: var(--font-label);
-  line-height: 1.5;
-  letter-spacing: 0.5px;
-}
-
+.preview-topline,
 .preview-bottomline {
   color: #526d8c;
   font-size: var(--font-label);
@@ -1317,7 +1038,6 @@ h2 em {
   letter-spacing: 0.5px;
 }
 
-/* Request workflow diagram */
 .mini-flow {
   display: flex;
   align-items: center;
@@ -1330,14 +1050,12 @@ h2 em {
   flex: 1;
   flex-direction: column;
   align-items: center;
-
   min-width: 0;
   padding: 15px 5px;
   background: #f4f7fc;
   border: 1px solid #b8cbe3;
   border-radius: 8px;
   box-shadow: 0 5px 15px #425a8410;
-
   text-align: center;
 }
 
@@ -1360,7 +1078,6 @@ h2 em {
   font-style: normal;
 }
 
-/* Lead management diagram */
 .crm-illustration {
   background: #eadfe9;
   color: #6f5170;
@@ -1383,7 +1100,6 @@ h2 em {
   min-width: 0;
   min-height: 115px;
   padding: 10px;
-
   background: #f8f2f7;
   border: 1px solid #d4bfd4;
   border-radius: 6px;
@@ -1403,18 +1119,15 @@ h2 em {
   display: block;
   margin-block: 6px;
   padding: 9px 6px;
-
   background: #ffffff;
   border: 1px solid #e5dbe8;
   border-radius: 3px;
-
   font-size: var(--font-label);
   font-style: normal;
   line-height: 1.5;
   overflow-wrap: anywhere;
 }
 
-/* Actual screenshots */
 .screenshot-layer {
   position: absolute;
   inset: 0;
@@ -1432,24 +1145,19 @@ h2 em {
   position: absolute;
   right: 13px;
   bottom: 13px;
-
   display: grid;
   place-items: center;
-
   width: 30px;
   height: 30px;
   background: #15213ce8;
   border: 1px solid #ffffff20;
   border-radius: 50%;
-
   color: #d5e5fb;
   font-size: 17px;
 }
 
 
-/* ==================================================
-   16. PROJECT TEXT AND TAGS
-================================================== */
+/* Project descriptions */
 
 .project-content {
   padding: 26px 12px 12px;
@@ -1476,7 +1184,6 @@ h2 em {
   background: #1a2c43;
   border: 1px solid #344b69;
   border-radius: 20px;
-
   color: #b3c9e4;
   font-size: var(--font-tag);
   line-height: 1.6;
@@ -1514,7 +1221,6 @@ h2 em {
   background: #111e32;
   border: 1px solid #33415c;
   border-radius: 20px;
-
   color: #a7b8d3;
   font-size: var(--font-tag);
   line-height: 1.6;
@@ -1524,11 +1230,9 @@ h2 em {
   display: inline-flex;
   align-items: center;
   gap: 24px;
-
   padding: 6px 0;
   background: none;
   border: 0;
-
   color: #accbfa;
   font-size: var(--font-button);
   line-height: 1.6;
@@ -1543,114 +1247,348 @@ h2 em {
   color: var(--pink);
 }
 
-.project-disclosure {
-  margin: 23px 0 0;
-  color: #91a1bb;
-  font-size: var(--font-small);
-  line-height: 1.7;
-}
 
+/* Work and education */
 
-/* ==================================================
-   17. CONTACT
-================================================== */
-
-.contact-section {
-  padding-block: 85px;
-  background: #0d1627;
-
-  /* Full-width divider above the footer */
+.experience-section {
+  background: var(--skills-background);
   border-bottom: 1px solid var(--line);
 }
 
-.contact-card {
+.experience-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 60px;
-
-  padding: 55px;
-  background: #15233b;
-  border: 1px solid #344665;
-  border-radius: 15px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 26px;
 }
 
-.contact-card .eyebrow {
-  font-size: var(--font-label);
-  line-height: 1.6;
-  letter-spacing: 1.4px;
+.experience-list {
+  display: grid;
+  gap: 22px;
 }
 
-.contact-main h2 {
-  font-size: clamp(2.5rem, 4.5vw, 3.375rem);
+.experience-card,
+.experience-focus {
+  min-width: 0;
+  padding: 30px;
+  background: var(--surface);
+  border: 1px solid #34435e;
+  border-radius: 18px;
 }
 
-.contact-main h2 em {
-  color: var(--pink);
+.experience-card {
+  position: relative;
 }
 
-.contact-main > p:not(.eyebrow) {
-  max-width: 390px;
+.experience-card h3 {
+  margin-bottom: 9px;
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+}
+
+.experience-card p,
+.experience-focus > p:not(.eyebrow) {
   font-size: var(--font-body);
   line-height: 1.8;
 }
 
-.contact-main .button {
-  margin-top: 12px;
+.experience-card p:last-child {
+  margin-bottom: 0;
 }
 
-.contact-aside {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-
-  min-width: 0;
-  padding-left: 45px;
-  border-left: 1px solid #3b4861;
+.experience-work::before {
+  content: "";
+  position: absolute;
+  top: 37px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  background: var(--blue);
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgb(140 188 255 / 25%);
 }
 
-.contact-flower {
-  margin-bottom: 25px;
+.experience-card .experience-place {
+  margin-bottom: 20px;
+  color: var(--blue);
+}
+
+.experience-education .experience-place {
+  margin-bottom: 0;
+}
+
+.education-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  background: #2b2236;
+  border: 1px solid #58445b;
+  border-radius: 12px;
   color: var(--pink);
-  font-size: 81px;
+}
+
+.education-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.experience-focus {
+  padding: 34px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgb(239 181 210 / 7%),
+      transparent 65%
+    ),
+    var(--surface);
+}
+
+.experience-focus .eyebrow {
+  margin-bottom: 20px;
+}
+
+.experience-focus h3 {
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 1.625rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+}
+
+.experience-principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.experience-principles span {
+  padding: 5px 11px;
+  background: #251f32;
+  border: 1px solid #50415a;
+  border-radius: 20px;
+  color: var(--pink-soft);
+  font-size: var(--font-tag);
+  line-height: 1.6;
+}
+
+
+/* Contact */
+
+.contact-section {
+  padding-block: 65px;
+  background: #0d1627;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-section > .container {
+  width: min(940px, calc(100% - 40px));
+}
+
+.connect-heading {
+  align-items: center;
+}
+
+.contact-card.connect-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.connect-profile {
+  position: relative;
+  min-width: 0;
+  padding: 28px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgb(239 181 210 / 12%),
+      transparent 65%
+    ),
+    var(--surface);
+
+  border: 1px solid #66516c;
+  border-radius: 28px 28px 28px 10px;
+}
+
+.connect-heart {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 20px;
+  background: #2b2236;
+  border: 1px solid #6c526b;
+  border-radius: 50%;
+  color: var(--pink);
+  font-size: 28px;
   line-height: 1;
 }
 
-.contact-aside-label {
-  margin-bottom: 22px;
-  color: #9eafc9;
-  font-size: var(--font-small);
-  line-height: 1.7;
-  letter-spacing: 1px;
+.connect-profile h3 {
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
 }
 
-.contact-aside > a {
-  max-width: 100%;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #61758f;
+.connect-role {
+  margin-bottom: 24px;
+  color: var(--blue);
+  font-size: var(--font-body);
+}
 
-  font-size: var(--font-button);
-  line-height: 1.6;
+.connect-details {
+  display: grid;
+  gap: 15px;
+}
+
+.connect-details a {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+  color: #c9d5e8;
+  font-size: var(--font-body);
   overflow-wrap: anywhere;
 }
 
-.contact-aside > a:hover {
+.connect-details a > span {
+  flex-shrink: 0;
   color: var(--pink);
 }
 
+.connect-details a:hover {
+  color: var(--pink);
+}
 
-/* ==================================================
-   18. FOOTER
-================================================== */
+.contact-social-icons {
+  margin-top: 24px;
+}
+
+.connect-note {
+  position: relative;
+  margin-top: 24px;
+  padding: 18px;
+  background: #eadce8;
+  border: 1px solid #f3e4ef;
+  border-radius: 18px 18px 6px 18px;
+  color: #60485f;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.connect-note > span {
+  position: absolute;
+  top: 9px;
+  right: 13px;
+  color: #946e8d;
+  font-size: 24px;
+}
+
+
+/* Compact booking card */
+
+.connect-booking {
+  min-width: 0;
+  padding: 28px;
+
+  background:
+    radial-gradient(
+      circle at bottom right,
+      rgb(140 188 255 / 8%),
+      transparent 65%
+    ),
+    var(--surface);
+
+  border: 1px solid #4c4967;
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgb(0 0 0 / 12%);
+}
+
+.booking-heading .eyebrow {
+  margin-bottom: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
+}
+
+.booking-heading h3 {
+  margin-bottom: 18px;
+  color: var(--text);
+  font-size: clamp(32px, 3.2vw, 40px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.booking-heading > p:last-child {
+  margin-bottom: 0;
+  color: #b2bfd3;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Calendar opens through the booking button */
+.booking-embed {
+  display: none;
+}
+
+#booking-direct {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  max-width: 100%;
+  margin-top: 26px;
+  padding: 13px 22px;
+
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 30px;
+
+  color: #101b30;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+#booking-direct:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+#booking-direct > span {
+  font-size: 20px;
+}
+
+
+/* Footer */
 
 .site-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
-
+  gap: 24px;
   padding-block: 28px;
-  border-top: none;
 }
 
 .footer-name {
@@ -1676,21 +1614,59 @@ h2 em {
 }
 
 
-/* ==================================================
-   19. PROJECT POPUP
-================================================== */
+/* Social icons */
+
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid #465875;
+  border-radius: 50%;
+  color: var(--blue);
+
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.footer-socials svg {
+  display: block;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.footer-socials a:hover {
+  background: #2b2338;
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+
+/* Project popup */
 
 .project-modal {
   width: min(780px, calc(100% - 32px));
   max-height: 88vh;
   padding: 43px;
   overflow-y: auto;
-
   background: #10192b;
   border: 1px solid #53607e;
   border-radius: 16px;
   color: var(--text);
-
   scrollbar-color: #5c6984 #10192b;
   box-shadow: 0 30px 100px #00000060;
 }
@@ -1703,7 +1679,6 @@ h2 em {
 
 .project-modal > .eyebrow {
   margin: 0 30px 18px 0;
-  font-size: var(--font-label);
 }
 
 .project-modal h2 {
@@ -1715,17 +1690,14 @@ h2 em {
   position: absolute;
   top: 12px;
   right: 13px;
-
   display: grid;
   place-items: center;
-
   width: 40px;
   height: 40px;
   padding: 0;
   background: #1d2a41;
   border: 1px solid #495774;
   border-radius: 50%;
-
   font-size: 25px;
   line-height: 1;
 }
@@ -1803,25 +1775,65 @@ h2 em {
 .modal-note {
   margin: 27px 0 22px;
   padding: 14px;
-
   background: #1a253a;
   border: 1px solid #34405a;
   border-radius: 6px;
-
   color: #a6b5ce;
   font-size: var(--font-small);
   line-height: 1.7;
 }
 
-/* Prevents background scrolling while a popup is open. */
 body.dialog-open {
   overflow: hidden;
 }
 
 
-/* ==================================================
-   20. TABLETS AND SMALL LAPTOPS
-================================================== */
+/* Scroll reveal */
+
+.scroll-reveal-ready .scroll-reveal {
+  opacity: 0;
+  translate: 0 28px;
+
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s ease,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.scroll-reveal-ready .scroll-reveal.is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+
+/* Animations */
+
+@keyframes airy-float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-1deg);
+  }
+
+  50% {
+    transform:
+      translate(var(--drift-x, 6px), var(--drift-y, -12px))
+      rotate(1deg);
+  }
+}
+
+@keyframes stack-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* Tablets and small laptops */
 
 @media (max-width: 1100px) {
   .container {
@@ -1832,6 +1844,11 @@ body.dialog-open {
     padding-inline: 32px;
   }
 
+  .site-header nav {
+    gap: 14px;
+    font-size: var(--font-small);
+  }
+
   .hero {
     gap: 35px;
   }
@@ -1839,15 +1856,6 @@ body.dialog-open {
   .hero-title {
     font-size: clamp(2.5rem, 5.7vw, 3.9375rem);
     letter-spacing: -2px;
-  }
-
-  .portrait-window {
-    height: 440px;
-  }
-
-  .portrait-note {
-    right: 0;
-    padding: 11px 12px;
   }
 
   .about-grid {
@@ -1882,15 +1890,6 @@ body.dialog-open {
   .mini-board > span {
     padding: 8px;
   }
-
-  .contact-card {
-    gap: 35px;
-    padding: 40px;
-  }
-
-  .contact-aside {
-    padding-left: 30px;
-  }
 }
 
 @media (max-width: 1000px) {
@@ -1900,26 +1899,14 @@ body.dialog-open {
   }
 }
 
-/* Keeps desktop navigation from crowding the brand. */
-@media (min-width: 761px) and (max-width: 1000px) {
-  .site-header nav {
-    gap: 14px;
-    font-size: var(--font-small);
-  }
-}
 
-
-/* ==================================================
-   21. MOBILE PHONES
-   Paragraphs and labels keep their readable sizes.
-================================================== */
+/* Phones */
 
 @media (max-width: 760px) {
   :root {
     --nav-offset: 170px;
   }
 
-  /* Shared layout */
   .container {
     width: calc(100% - 40px);
   }
@@ -1947,7 +1934,7 @@ body.dialog-open {
     margin-top: 22px;
   }
 
-  /* Mobile navigation */
+  /* Navigation */
   .site-header {
     flex-wrap: wrap;
     gap: 15px;
@@ -1956,33 +1943,22 @@ body.dialog-open {
   }
 
   .brand {
-    gap: 11px;
-  }
-
-  .brand-mark {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
+    flex: 1;
   }
 
   .brand-name {
-    font-size: 1.1875rem;
-  }
-
-  .brand-name > span {
-    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
   }
 
   .site-header nav {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 16px 20px;
-
     width: 100%;
     margin-left: 0;
     padding-top: 12px;
     border-top: 1px solid var(--line);
-
     font-size: var(--font-body);
   }
 
@@ -1994,18 +1970,15 @@ body.dialog-open {
     margin-left: 6px;
   }
 
-  /* Links remain visible if JavaScript is unavailable. */
   .js .menu-toggle {
     display: flex;
     align-items: center;
     gap: 12px;
-
     min-height: 40px;
     padding: 8px 13px;
     background: none;
     border: 1px solid #43516b;
     border-radius: 30px;
-
     font-size: var(--font-small);
     line-height: 1.5;
   }
@@ -2025,14 +1998,18 @@ body.dialog-open {
     padding-block: 48px 55px;
   }
 
-  .hero-title {
-    font-size: clamp(2.6875rem, 9.6vw, 4.3125rem);
-    letter-spacing: -2px;
-  }
-
   .hero-kicker {
     margin-bottom: 24px;
     letter-spacing: 1px;
+  }
+
+  .hero-name {
+    letter-spacing: 0.12em;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6875rem, 9.6vw, 4.3125rem);
+    letter-spacing: -2px;
   }
 
   .hero-intro {
@@ -2053,25 +2030,32 @@ body.dialog-open {
     margin-top: 24px;
   }
 
-  /* Portrait */
-  .portrait-composition {
+  /* Photo */
+  .hero-visual {
     justify-self: center;
-    max-width: 365px;
-    padding-right: 22px;
+    max-width: 420px;
+    min-height: 470px;
   }
 
-  .portrait-window {
-    height: 430px;
-    border-width: 7px;
+  .hero-portrait {
+    height: 460px;
+    transform: scale(1.05);
   }
 
-  .portrait-star {
-    font-size: 59px;
+  .floating-tool {
+    gap: 7px;
+    padding: 9px 11px;
+    font-size: var(--font-label);
+    border-radius: 14px;
   }
 
-  .portrait-note {
-    right: -4px;
-    bottom: 103px;
+  .floating-tool img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .float-google {
+    bottom: 6%;
   }
 
   /* About */
@@ -2113,7 +2097,6 @@ body.dialog-open {
     letter-spacing: -1px;
   }
 
-  /* Connected skills backgrounds */
   .stack-section {
     padding-block: 35px 20px;
   }
@@ -2145,39 +2128,37 @@ body.dialog-open {
     padding: 15px;
   }
 
-  .project-preview {
-    height: 250px;
-  }
-
   .project-content {
     padding: 23px 8px 12px;
   }
 
-  /* Contact */
-  .contact-card {
+  /* Experience */
+  .experience-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 30px 25px;
+    gap: 24px;
   }
 
-  .contact-main h2 {
-    font-size: 2.5rem;
+  .experience-card,
+  .experience-focus {
+    padding: 24px;
   }
 
-  .contact-aside {
-    padding: 26px 0 0;
-    border-top: 1px solid #3b4861;
-    border-left: 0;
+  /* Contact */
+  .contact-card.connect-layout {
+    grid-template-columns: 1fr;
   }
 
-  .contact-flower {
-    margin-bottom: 17px;
-    font-size: 43px;
+  .connect-profile,
+  .connect-booking {
+    padding: 24px;
+  }
+
+  .booking-heading h3 {
+    font-size: 32px;
   }
 
   /* Footer */
   .site-footer {
-    flex-wrap: wrap;
     gap: 18px;
     padding-block: 25px;
   }
@@ -2186,7 +2167,7 @@ body.dialog-open {
     width: 100%;
   }
 
-  /* Project popup */
+  /* Popup */
   .project-modal {
     padding: 50px 23px 25px;
   }
@@ -2205,9 +2186,7 @@ body.dialog-open {
 }
 
 
-/* ==================================================
-   22. SMALL PHONES
-================================================== */
+/* Small phones */
 
 @media (max-width: 400px) {
   .hero-title {
@@ -2217,19 +2196,6 @@ body.dialog-open {
 }
 
 @media (max-width: 370px) {
-  .portrait-window {
-    height: 390px;
-  }
-
-  .portrait-label {
-    padding: 16px 13px;
-  }
-
-  .portrait-note {
-    right: -3px;
-    padding: 9px 10px;
-  }
-
   .section-heading h2,
   .about-copy h2 {
     font-size: 2.125rem;
@@ -2253,10 +2219,7 @@ body.dialog-open {
 }
 
 
-/* ==================================================
-   23. REDUCED MOTION
-   Keep this section last.
-================================================== */
+/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -2271,11 +2234,16 @@ body.dialog-open {
   }
 
   .button:hover,
-  .service-card:hover {
+  .service-card:hover,
+  .floating-tool {
     transform: none;
   }
 
-  /* Show the toolkit as a static wrapping list. */
+  .scroll-reveal-ready .scroll-reveal {
+    opacity: 1;
+    translate: none;
+  }
+
   .stack-marquee {
     overflow: visible;
     -webkit-mask-image: none;
@@ -2293,65 +2261,8 @@ body.dialog-open {
     padding: 0;
   }
 
-  /* Hide duplicated toolkit content. */
   .stack-group[aria-hidden="true"],
   .stack-row-secondary {
     display: none;
-  }
-}
-/* Footer layout */
-.site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-/* Social icons */
-.footer-socials {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.footer-socials a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  border: 1px solid #245a9c;
-  border-radius: 50%;
-  color: #245a9c;
-  background: transparent;
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.footer-socials svg {
-  display: block;
-  width: 20px;
-  height: 20px;
-}
-
-.footer-socials a:hover {
-  background-color: #245a9c;
-  color: #ffffff;
-  transform: translateY(-3px);
-}
-
-.footer-socials a:focus-visible {
-  outline: 3px solid #245a9c;
-  outline-offset: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .footer-socials a {
-    transition: none;
   }
 }
